@@ -8,4 +8,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="i.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="i.webp" />
+  </ItemGroup>
+
 </Project>

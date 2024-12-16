@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pr12"
         mc:Ignorable="d"
-        Title="pr12" Height="500" Width="800" ResizeMode="NoResize">
+        Title="pr12" Height="500" Width="800" ResizeMode="NoResize" Icon="/i.webp">
     <Grid>
-        <TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="144*"/>
+            <ColumnDefinition Width="535*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.RowSpan="6" Grid.ColumnSpan="3">
             <TabItem Header="Параллелепипед">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -15,7 +28,13 @@
                         <ColumnDefinition Width="117*"/>
                         <ColumnDefinition Width="653*"/>
                     </Grid.ColumnDefinitions>
-
+                    <Menu Margin="0,0,0,424" Grid.ColumnSpan="2" >
+                        <MenuItem Header="Файл" Height="29">
+                            <MenuItem Header="О программе" Click="MenuItem_Click"/>
+                            <Separator/>
+                            <MenuItem Header="Выход" Click="MenuItem_Exit"/>
+                        </MenuItem>
+                    </Menu>
                     <StackPanel Grid.Row="0" Margin="10,20,10,0" Grid.ColumnSpan="3">
                         <Label Content="Длина a:" />
                         <TextBox x:Name="txtA"  />
@@ -26,7 +45,15 @@
                         <Button Content="Рассчитать" Click="CalculateParallelepiped" />
                         <Label Content="площадь поверхности" Height="25" Width="138"/>
                         <Label Content="Объем" Height="29" Margin="70" Width="61"/>
-                        <StatusBar Height="26" Width="108">
+                        <StatusBar Height="26" Width="150" RenderTransformOrigin="0.5,0.5">
+                            <StatusBar.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-2.045"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="-0.464"/>
+                                </TransformGroup>
+                            </StatusBar.RenderTransform>
                             <TextBlock x:Name="time" Text="12:12"/>
                             <Separator/>
                             <TextBlock x:Name="data" Text="20.07.2021"/>
@@ -37,14 +64,14 @@
 
 
                     <TextBlock x:Name="txtSurfaceArea" Margin="29,196,116,199" Width="508" Grid.Column="2"/>
-                    <TextBox x:Name="txtVolume" Margin="29,290,135,93" Width="489" Grid.Column="2"/>
+                    <TextBox x:Name="txtVolume" Margin="29,290,135,93" Width="489" Grid.Column="2" IsReadOnly="True"/>
 
                 </Grid>
             </TabItem>
             <TabItem Header="Двузначное число">
                 <Grid>
 
-                    <StackPanel Grid.Row="0" Margin="10">
+                    <StackPanel Grid.Row="0" Margin="10,10,10,180">
                         <Label Content="Двузначное число:" />
                         <TextBox x:Name="txtNumber"  />
                         <Button Content="Рассчитать" Click="CalculateDigits" />
@@ -55,7 +82,7 @@
                     <Label Content="сумма цифр" Height="28" Width="146" Margin="324,78,324,300"/>
                     <Label Content="произведение цифр" Height="23" Margin="303,185,340,198"/>
                     <TextBlock x:Name="txtSum" Margin="30,106,30,241" />
-                    <TextBlock x:Name="txtProduct"  Margin="40,222,40,126"/>
+                    <TextBlock x:Name="txtProduct"  Margin="40,238,40,110"/>
 
 
                 </Grid>
